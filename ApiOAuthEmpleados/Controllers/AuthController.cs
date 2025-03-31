@@ -40,7 +40,8 @@ namespace ApiOAuthEmpleados.Controllers
                 string jsonEmpleado = JsonConvert.SerializeObject(empleado);
                 Claim[] informacion = new[]
                 {
-                    new Claim("UserData", jsonEmpleado)
+                    new Claim("UserData", jsonEmpleado),
+                    new Claim(ClaimTypes.Role, "PRESIDENTE")
                 };
                 //EL TOKEN SE GENEREA CON UNA CLASE Y DEBEMOS INDICAR LOS DATOS QUE ALMMACENARA EN SU INTERIOR
                 JwtSecurityToken token = new JwtSecurityToken(
